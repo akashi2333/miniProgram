@@ -1,0 +1,4 @@
+/* pages/travelTalk/travelTalk.wxss */
+.hidden {
+  display: none;
+}

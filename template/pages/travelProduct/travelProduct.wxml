@@ -1,0 +1,270 @@
+<view class='cu-custom' style="height:{{CustomBar}}px;">
+  <view 
+    class="cu-bar fixed bg-gradual-purple" 
+    style="height:{{CustomBar}}px;padding-top:{{StatusBar}}px;">
+    <view class='action' style='top:{{StatusBar}}px;'  bindtap="BackPage">
+      <text class="icon-back">产品详情</text>
+    </view>
+  </view>
+</view>
+<view class="cu-card case no-card">
+  <view class="cu-item shadow">
+    <view class="image" style="margin: 0;border-radius: 0;">
+      <swiper class="screen-swiper"autoplay="true" interval="5000" duration="500" bindchange="swiperChange">
+        <swiper-item wx:for="{{travelProduct.imgurl}}" wx:key="*this">
+          <image src="{{travelProduct.imgurl[index]}}" mode="aspectFill"></image>
+        </swiper-item>
+      </swiper>
+      <view class="cu-bar bg-shadeBottom flex justify-between">
+        <text class="text-cut text-sm">编号 {{travelProduct.identifiction}}</text>
+        <view class="flex justify-end align-center">
+          <view class="margin-right-sm">{{current+1}}/{{travelProduct.imgurl.length}}</view>
+          <view class="icon-pic"></view>
+        </view>
+      </view>
+    </view>
+    <view class="cu-list menu-avatar margin-tb-sm" style="height:90px">
+      <view class="cu-item flex flex-wrap align-center" style="padding:0 30rpx;height:90px">
+        <text class="text-lg">{{travelProduct.introduction}}</text>
+        <view class="flex margin-top-sm align-center" style="width:296px">
+          <view>
+            <text class="text-lg text-orange">￥{{travelProduct.price}}</text>
+            <text class="text-sm margin-left-xs">起</text>
+          </view>
+          <text class="text-sm padding-lr-xs margin-left-sm text-orange" style="text-decoration:underline">价格详情</text>
+          <text class="text-sm padding-lr-xs margin-left-lg text-gray">已售{{travelProduct.number}}笔</text>
+        </view>
+        <view class="flex justify-between margin-top-sm align-center" style="width:100%">
+          <view class="flex justify-start">
+            <view class="icon-roundcheck margin-right">{{travelProduct.shopping}}</view>
+            <view class="icon-roundcheck margin-right">{{travelProduct.selfpaying}}</view>
+            <view class="icon-roundcheck margin-right">{{travelProduct.isdepart}}</view>
+          </view>
+          <view class="icon-more"></view>
+        </view>
+      </view>
+    </view>
+  </view>
+</view>
+<view class="cu-card case no-card margin-top-xs">
+  <view class="cu-item shadow">
+    <view class="margin-top-sm" style="padding:0 12px">
+      <text class="text-lg margin-right">出发日期</text>
+      <text class="text-gray text-sm">以下价格均为起价</text>
+    </view>
+    <view class="flex justify-between align-center margin-bottom-sm"  style="padding:0 12px">
+      <view class="text-sm grid col-5">
+        <view style="padding：10rpx; border-radius:5px;border:1px solid gray" class="flex justify-center align-center flex-wrap  margin-top-lg margin-right">
+          <view class="margin-bottom-xs">04-04 周六</view>
+          <text class="text-orange">￥{{travelProduct.price}}</text>
+        </view>
+        <view style="border-radius:5px;border:1px solid gray" class="flex justify-center align-center flex-wrap  margin-top-lg margin-right">
+          <view class="margin-bottom-xs">04-05 周六</view>
+          <text class="text-orange">￥{{travelProduct.price}}</text>
+        </view>
+        <view style="border-radius:5px;border:1px solid gray" class="flex justify-center align-center flex-wrap  margin-top-lg margin-right">
+          <view class="margin-bottom-xs">04-06 周六</view>
+          <text class="text-orange">￥{{travelProduct.price}}</text>
+        </view>
+        <view style="border-radius:5px;border:1px solid gray" class="flex justify-center align-center flex-wrap  margin-top-lg margin-right">
+          <view class="margin-bottom-xs">04-07 周六</view>
+          <text class="text-orange">￥{{travelProduct.price}}</text>
+        </view>
+        <view style="border-radius:5px;border:1px solid gray" class="flex justify-center align-center flex-wrap  margin-top-lg margin-right">
+          <view class="margin-bottom-xs">04-08 周六</view>
+          <text class="text-orange">￥{{travelProduct.price}}</text>
+        </view>
+        <view style="border-radius:5px;border:1px solid gray" class="flex justify-center align-center flex-wrap  margin-top-lg margin-right">
+          <view class="margin-bottom-xs">04-09 周六</view>
+          <text class="text-orange">￥{{travelProduct.price}}</text>
+        </view>
+        <view style="border-radius:5px;border:1px solid gray" class="flex justify-center align-center flex-wrap  margin-top-lg margin-right">
+          <view class="margin-bottom-xs">04-10 周六</view>
+          <text class="text-orange">￥{{travelProduct.price}}</text>
+        </view>
+        <view style="border-radius:5px;border:1px solid gray" class="flex justify-center align-center flex-wrap  margin-top-lg margin-right">
+          <view class="margin-bottom-xs">04-11 周六</view>
+          <text class="text-orange">￥{{travelProduct.price}}</text>
+        </view>
+      </view>
+      <view class="icon-right"></view>
+    </view>
+  </view>
+</view>
+<view class="cu-card case no-card margin-top-xs">
+  <view class="cu-item shadow">
+    <view class="flex justify-between align-center margin-top-sm" style="padding:0 12px">
+      <view class="text-purple flex align-center">
+        <view class="margin-right-lg">
+          <text class="text-lg margin-right-xs">{{travelProduct.mark}}</text>
+          <text class="text-sm" style="text-decoration:underline">分</text>
+        </view>
+        <text class="text-sm">十分满意</text>
+      </view>
+      <view class="flex align-center">
+        <text class="text-sm" style="margin-right:21px">共有{{travelProduct.evaluations.length}}条评价</text>
+        <text class="icon-right"></text>
+      </view>
+    </view>
+    <view class="margin-bottom-sm">
+      <view class="cu-list menu-avatar">
+        <view class="cu-item flex justify-between align-center">
+          <view class="cu-avatar round lg" style="background-image:url('{{travelProduct.evaluations[0].headImg}}');"></view>
+          <view>{{travelProduct.evaluations[0].userName}}</view>
+          <view class="text-gray text-sm padding-lr">
+              {{travelProduct.evaluations[0].releaseTime}}
+          </view>
+        </view>
+      </view>
+      <view style="padding:0 59px">{{travelProduct.evaluations[0].content}}</view>
+    </view>
+  </view>
+</view>
+<view class="cu-card case no-card margin-top-xs">
+  <view class="cu-item shadow">
+    <view class="bg-gray" style="display:grid;grid-gap:2px;grid-template-rows:40px 40px;grid-template-columns: repeat(3, 1fr);">
+      <view class="padding text-center {{index==TabCur?'text-white bg-orange':'bg-white'}}"wx:for="{{options}}" wx:key="{{index}}" bindtap="tabSelect" data-id="{{index}}">
+      {{item}}
+      </view>
+    </view>
+  </view>
+</view>
+<view class="margin-bottom-sm" style="margin-top:2px">
+  <view hidden="{{TabCur != 0}}">
+    <view class="padding bg-white">
+      <image src="https://ossweb-img.qq.com/images/lol/web201310/skin/big10006.jpg">
+      </image>
+    </view>
+  </view>
+  <view hidden="{{TabCur != 1}}">
+    <view class="padding bg-white">
+      <image src="https://ossweb-img.qq.com/images/lol/web201310/skin/big10006.jpg">
+      </image>
+    </view>
+    <view class="margin-bottom-lg cu-card case no-card  margin-top-sm">
+      <view class="cu-item shadow">
+        <view class="cu-timeline">
+          <view class="cu-time text-center" style="width:100%">三亚<view class="cu-tag bg-gradual-purple" style="float:right">第一天</view></view>
+          <view class="cu-item cur cuIcon-noticefill flex flex-wrap">
+            <view class="text-black text-lg">12:30集合 三亚凤凰国际机场（具体时间地点以导游通知为准）</view>
+            <view class="text-black text-lg margin-top-lg">我社工作人员会提前一天晚上10点左右电话与您联系；告诉出行事项、请保持联系畅通</view>
+            <view class="text-sm margin-top-sm text-gray">说明：出团时间、地点仅供参考，具体以出团通知为准</view>
+          </view>
+          <view class="cu-item cuIcon-attentionforbidfill flex flex-wrap">
+            <view class="text-black text-lg">住宿安排</view>
+            <view class="margin-top-lg flex justify-start align-center">
+              <image src="https://ossweb-img.qq.com/images/lol/web201310/skin/big10006.jpg" style="height:50px;width:50px"></image>
+              <view class="flex flex-wrap margin-left-sm">
+                <view class="text-black text-lg">三亚玉海国际度假酒店</view>
+                <view class="text-sm text-gray icon-location margin-top-sm">三亚大东海旅游区亚湾路</view>
+              </view>
+            </view>
+          </view>
+          <view class="cu-item cuIcon-evaluate_fill flex flex-wrap">
+            <view class="text-black text-lg">游览景点</view>
+            <view class="text-sm margin-top-lg text-gray">蜈支洲岛靠近海南东线高速公路，位置优越，交通便利。可乘中国最大的气垫船、能载客70人的"水上漂"上岛。蜈支州岛属热带海洋气候，全年温和气爽，四季怡人，是度假、休闲、避寒、冬泳、娱乐的理想去处。岛东、南部最高峰海拔79.9米，悬崖壁立，其下礁石万状，惊涛击石，浪花如雪。西及北部地势渐平，一弯沙滩，沙质细白临海山石嶙峋陡峭，直插海底，惊涛拍岸，蔚为壮观。中部山林草地起伏逶迤，绿影婆娑。北部滩平浪静，沙质洁白细腻，恍若玉带天成。</view>
+            <view class="flex align-center margin-top-sm">
+              <image src="https://ossweb-img.qq.com/images/lol/web201310/skin/big10006.jpg" style="height:50px;width:50px" class="margin-right-sm"></image>
+              <image src="https://ossweb-img.qq.com/images/lol/web201310/skin/big10006.jpg" style="height:50px;width:50px" class="margin-right-sm"></image>
+            </view>
+          </view>
+          <view class="cu-item flex-wrap flex">
+            <view class="text-black text-lg">7:30早餐</view>
+            <view class="margin-top-lg flex justify-start align-center">
+              <view class="text-lg text-black ">酒店用餐</view>
+              <view class="text-sm text-gray">（自助餐；餐标：30/位）</view>
+            </view>
+          </view>
+          <view class="cu-item flex-wrap flex">
+            <view class="text-black text-lg">12:00中餐</view>
+            <view class="margin-top-lg flex justify-start align-center">
+              <view class="text-lg text-black ">自理</view>
+              <view class="text-sm text-gray">（敬请自理）</view>
+            </view>
+          </view>
+          <view class="cu-item flex-wrap flex">
+            <view class="text-black text-lg">18:00晚餐</view>
+            <view class="margin-top-lg flex justify-start align-center">
+              <view class="text-lg text-black ">团餐</view>
+              <view class="text-sm text-gray">（餐标：30/位）</view>
+            </view>
+          </view>
+          <view class="cu-item flex-wrap flex">
+            <view class="text-black text-lg">20:00自由活动</view>
+            <view class="text-sm margin-top-lg text-gray">自由活动</view>
+          </view>
+          <view class="cu-item flex-wrap flex">
+            <view class="text-black text-lg">注意事项</view>
+            <view class="text-lg text-red margin-top-lg">注意按时就餐，以免饭菜不足</view>
+          </view>
+        </view>
+      </view>
+    </view>
+  </view>
+  <view hidden="{{TabCur != 2}}">
+    <view class="padding bg-white">
+      <view class="text-df">
+        <view class="icon-titles text-purple"><text class="text-black margin-left-sm">费用包含</text></view>
+        <view class="margin-tb-lg text-gray">1.旅游意外险2.住宿</view>
+      </view>
+      <view class="text-df">
+        <view class="icon-titles text-purple"><text class="text-black margin-left-sm">费用不包含</text></view>
+        <view class="margin-tb-lg text-gray">1.旅游意外险2.住宿</view>
+      </view>
+      <view class="text-df">
+        <view class="icon-titles text-purple"><text class="text-black margin-left-sm">儿童费用说明</text></view>
+        <view class="margin-tb-lg text-gray">1.旅游意外险2.住宿</view>
+      </view>
+      <view class="text-df">
+        <view class="icon-titles text-purple"><text class="text-black margin-left-sm">单房差说明</text></view>
+        <view class="margin-tb-lg text-gray">1.旅游意外险2.住宿</view>
+      </view>
+    </view>
+  </view>
+  <view hidden="{{TabCur != 3}}">
+    <view class="padding bg-white">
+      <view class="text-df">
+        <view class="icon-titles text-purple"><text class="text-black margin-left-sm">适合年龄</text></view>
+        <view class="margin-tb-lg text-gray">xxxxxxxxxxxx</view>
+      </view>
+      <view class="text-df">
+        <view class="icon-titles text-purple"><text class="text-black margin-left-sm">提供资料</text></view>
+        <view class="margin-tb-lg text-gray">xxxxxxxxxxxx</view>
+      </view>
+      <view class="text-df">
+        <view class="icon-titles text-purple"><text class="text-black margin-left-sm">携带物品</text></view>
+        <view class="margin-tb-lg text-gray">xxxxxxxxxxxx</view>
+      </view>
+      <view class="text-df">
+        <view class="icon-titles text-purple"><text class="text-black margin-left-sm">特殊限制</text></view>
+        <view class="margin-tb-lg text-gray">病患，孕妇</view>
+      </view>
+      <view class="text-df">
+        <view class="icon-titles text-purple"><text class="text-black margin-left-sm">安全提示</text></view>
+        <view class="margin-tb-lg text-gray">高危项目安全须知</view>
+      </view>
+      <view class="text-df">
+        <view class="icon-titles text-purple"><text class="text-black margin-left-sm">保险说明</text></view>
+        <view class="margin-tb-lg text-gray">旅游意外伤害险</view>
+      </view>
+    </view>
+  </view>
+  <view hidden="{{TabCur != 4}}">
+    <view class="padding bg-white">
+      <view class="text-df">
+        <view class="icon-titles text-purple"><text class="text-black margin-left-sm">游客违约责任</text></view>
+        <view class="margin-tb-lg text-gray">违约金扣款</view>
+      </view>
+      <view class="text-df">
+        <view class="icon-titles text-purple"><text class="text-black margin-left-sm">供应商违约责任</text></view>
+        <view class="margin-tb-lg text-gray">退回全部团款</view>
+      </view>
+    </view>
+  </view>
+  <view hidden="{{TabCur != 5}}">
+    <view class="padding bg-white">
+      <view class="text-sm text-gray">顶顶顶顶顶顶顶顶顶顶顶顶顶顶顶顶顶顶顶顶顶顶顶顶顶顶顶顶顶顶顶顶顶顶顶顶顶顶顶顶顶顶顶顶顶顶顶顶顶顶顶顶顶顶顶顶顶顶顶顶顶顶顶顶顶顶顶顶顶顶顶顶顶顶顶顶</view>
+    </view>
+  </view>
+</view>
+

@@ -1,0 +1,60 @@
+<view class='cu-custom' style="height:{{CustomBar}}px;">
+  <view 
+    class="cu-bar fixed bg-gradual-purple" 
+    style="height:{{CustomBar}}px;padding-top:{{StatusBar}}px;">
+    <view class='action' style='top:{{StatusBar}}px;'  bindtap="BackPage">
+      <text class="icon-back">旅游杂谈</text>
+    </view>
+  </view>
+</view>
+<view class="cu-bar bg-white search fixed" style="top:{{CustomBar}}px;">
+  <view class="search-form round">
+    <text class="icon-search"></text>
+    <input type="text" placeholder="搜素城市" confirm-type="search"></input>
+  </view>
+  <view class="action" bindtap="addTalking">
+    <text class="icon-post" style="color:purple;font-size:48rpx"></text>
+  </view>
+</view>
+<scroll-view scroll-y class="indexes" scroll-into-view="indexes-{{listCurID}}" style="height:calc(100vh - {{CustomBar}}px - 50px)" scroll-with-animation="true" enable-back-to-top="true" style="margin-top:100rpx">
+  <view class="cu-card dynamic no-card" style="margin-top:20rpx" wx:for="{{travelTalkList}}" wx:key="{{index}}" wx:for-item="travelTalk">
+    <view class="cu-item shadow-lg" catchtap="toDetail" id="{{index}}">
+      <view class="cu-list menu-avatar">
+        <view class="cu-item flex justify-between align-center">
+          <view class="cu-avatar round lg" style="background-image:url('{{travelTalk.headImg}}');"></view>
+          <view>{{travelTalk.userName}}</view>
+          <view class="text-gray text-sm padding-lr">
+              {{travelTalk.releaseTime}}
+          </view>
+        </view>
+      </view>
+      <view class="text-content flex align-center" style="padding-left:30rpx">
+        <view>{{travelTalk.title}}</view>
+        <text class="bg-gray" style="border-radius:20rpx;margin-left:20rpx;font-size:20rpx;color:black;height:40rpx;width:90rpx;text-align:center">{{travelTalk.city}}</text>
+      </view>
+      <view class="grid flex-sub padding-lr col-1">
+        <view class="bg-img only-img" style="background-image:url('{{travelTalk.imgUrl[0]}}');">
+        </view>
+      </view>
+      <view class="flex justify-between align-center">
+        <view style="margin-left:20rpx">
+          <span class="nothing"></span>
+          <view class="like-avatars {{travelTalk.pinkHeart==0 ? 'hide' : ''}}">
+            <view wx:for="{{travelTalk.like_avatars}}" wx:key="index" wx:for-item="like_avatars">
+              <image class="like-avatar" style="right:{{index*20}}rpx; z-index:{{5-index}}" src="{{like_avatars}}"></image>
+            </view>
+           <view class="travel-likes" style="right:{{(travelTalk.like_avatars.length-1)*20+20}}rpx">{{travelTalk.pinkHeart}}人觉得很赞</view>
+          </view>
+        </view>
+        <view class="text-gray text-sm justify-end padding flex align-center">
+          <view catchtap="zan" id="{{index}}">
+            <text class="icon-like margin-lr-xs" wx:if="{{if_like != index}}" style="color: purple;font-size:40rpx"></text>
+            <text class="icon-likefill margin-lr-xs" wx:else style="color: purple;font-size:40rpx"></text>{{travelTalk.pinkHeart}}
+          </view>
+          <text class="icon-comment margin-lr-xs" style="color: purple;font-size:40rpx"></text>{{travelTalk.commentNumber}}
+          <text class="icon-forward margin-lr-xs" style="color: purple;font-size:40rpx"></text>
+        </view>
+      </view>  
+    </view>
+  </view>
+</scroll-view>

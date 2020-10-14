@@ -1,0 +1,107 @@
+<view class='cu-custom' style="height:{{CustomBar}}px;">
+  <view 
+    class="cu-bar fixed bg-gradual-purple" 
+    style="height:{{CustomBar}}px;padding-top:{{StatusBar}}px;">
+    <view class='action' style='top:{{StatusBar}}px;'  bindtap="BackPage">
+      <text class="icon-back">杂谈详情</text>
+    </view>
+  </view>
+</view>
+<view class="cu-card dynamic no-card">
+  <view class="cu-item shadow">
+    <view class="cu-list menu-avatar solids-bottom">
+      <view class="cu-item flex align-center">
+        <view class="cu-avatar round lg" style="background-image:url({{travelTalk.headImg}});"></view>
+        <view class="content flex-sub">
+          <view>{{travelTalk.userName}}</view>
+          <view class="text-gray text-sm flex justify-between">
+            {{travelTalk.releaseTime}} 发布 {{travelTalk.view}}浏览
+          </view>
+        </view>
+      </view>
+    </view>
+    <view class="text-content">{{travelTalk.title}}</view>
+    <swiper class="screen-swiper padding-lr" indicator-dots="true" indicator-active-color="white" autoplay="true" circular="false">
+      <swiper-item wx:for="{{travelTalk.imgUrl}}" wx:key>
+        <image src="{{travelTalk.imgUrl[index]}}" data-id="{{index}}" mode="aspectFill"></image>
+      </swiper-item>
+    </swiper>
+    <view class="text-content" style="margin-top:20rpx">{{travelTalk.story}}</view>
+    <view class="bg-gray margin-sm" style="border-radius:20rpx;font-size:20rpx;color:black;height:40rpx;width:90rpx;text-align:center">{{travelTalk.city}}</view>
+  </view>
+</view>
+<view class="cu-list menu-avatar comment bg-white" style="margin-top:20rpx;margin-bottom:200rpx" wx:if='{{travelTalk.commentNumber != 0}}'>
+  <view class="solids-bottom flex justify-between align-center padding-sm" style="font-size:30rpx">
+    <view class="flex justify-end align-center">
+      <view class="icon-titles" style="color: purple"></view>
+      <view>评论</view>
+    </view>
+    <view class="flex justify-end align-center">
+      <view>共{{travelTalk.commentNumber}}条</view>
+      <view class="icon-right"></view>
+    </view>
+  </view>
+  <view class="cu-item" wx:for="{{travelTalk.commentList}}" wx:for-item="comment" wx:for-index="index">
+    <view class="cu-avatar round" style="background-image:url({{comment.headImg}});"></view>
+    <view class="content">
+      <view class="text-grey">{{comment.userName}}</view>
+      <view class="flex align-center justify-between">
+        <view class="flex align-center">
+          <view class="text-content text-df">{{comment.comment}}</view>
+          <view class="text-gray text-df">{{comment.time}}</view>
+        </view>
+        <view class="flex flex-direction align-center" style="padding-right:20rpx">
+          <view id="{{index}}" bindtap="like_comment">
+            <view class="icon-like margin-lr-xs" wx:if="{{if_like != index}}" style="color: purple;font-size:40rpx"></view>
+            <view class="icon-likefill margin-lr-xs" wx:else style="color: purple;font-size:40rpx"></view>
+          </view>
+          <view class="text-gray">{{comment.pinkHeart}}</view>
+        </view>
+      </view>
+      <view wx:if='{{comment.down_comments_num != 0}}'>
+        <view class="flex align-center" bindtap="ShowReplay" id="{{comment.id}}">
+          <view class="text-gray">展开{{comment.down_comments_num}}条回复</view>
+          <view class="icon-unfold" style="color:gray"></view>
+        </view>
+        <view class="cu-list menu-avatar comment bg-white {{uhide==comment.id?'':'hidden'}}">
+          <view class="cu-item" wx:for="{{comment.downCommentList}}" wx:for-item="downComment" wx:for-index="index">
+            <view class="cu-avatar round" style="background-image:url({{downComment.headImg}});"></view>
+            <view class="content">
+              <view class="text-grey">{{downComment.userName}}</view>
+              <view class="flex align-center justify-between">
+                <view class="flex align-center">
+                  <view class="text-content text-df">{{downComment.comment}}</view>
+                  <view class="text-gray text-df">{{downComment.time}}</view>
+                </view>
+                <view class="flex flex-direction align-center" style="padding-right:20rpx">
+                  <view id="{{index}}" data-key="{{comment.index}}" bindtap="like_down_comment">
+                    <view class="icon-like margin-lr-xs" wx:if="{{if_like_downComment != index}}" style="color: purple;font-size:40rpx"></view>
+                    <view class="icon-likefill margin-lr-xs" wx:else style="color: purple;font-size:40rpx"></view>
+                  </view>
+                  <view class="text-gray">{{downComment.pinkHeart}}</view>
+                </view>
+              </view>
+            </view>
+          </view>
+        </view>
+      </view>
+    </view>
+  </view>
+</view>
+
+<view class="cu-bar tabbar bg-white foot">
+  <textarea class="bg-gray" placeholder="写两句，撩撩楼主" value="{{comment_content}}" focus="true" show-confirm-bar="{{false}}" cursor-spacing="23" maxlength="300" style="height:55rpx;width:400rpx;margin-left:20rpx;border-radius:20rpx;padding:10rpx 10rpx" bindinput="change_comment"></textarea>
+  <text class="icon-post margin-lr-xs" style="color: purple;font-size:40rpx" catchtap="post_comment"></text>
+  <view class="text-gray text-sm justify-end padding flex align-center">
+    <view catchtap="zan">
+      <text class="icon-like margin-lr-xs" wx:if="{{if_like_travelTalk != travelTalk.identifiction}}" style="color: purple;font-size:40rpx"></text>
+      <text class="icon-likefill margin-lr-xs" wx:else style="color: purple;font-size:40rpx"></text>{{travelTalk.pinkHeart}}
+    </view>
+    <text class="icon-comment margin-lr-xs" style="color: purple;font-size:40rpx"></text>{{travelTalk.commentNumber}}
+    <view catchtap="collect">
+      <text class="icon-favor margin-lr-xs" wx:if="{{if_collected != travelTalk.identifiction}}" style="color: purple;font-size:40rpx"></text>
+      <text class="icon-favorfill margin-lr-xs" wx:else style="color: purple;font-size:40rpx"></text>
+    </view>
+    <text class="icon-forward margin-lr-xs" style="color: purple;font-size:40rpx"></text>
+  </view>
+</view>

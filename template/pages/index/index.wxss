@@ -1,0 +1,6 @@
+.ico {
+  display: block;
+  width: 100%;
+  position: relative;
+  font-size: 48rpx;
+}

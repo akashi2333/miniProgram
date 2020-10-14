@@ -1,0 +1,54 @@
+<view>
+    <view class="header">
+        <view class="position">
+            <view id="inside_btn" bindtap="to_inside"
+                style="color: {{inside_btn_font}}; background-color: {{inside_btn_bg}};">
+                <p>
+                    <span>境内</span>
+                </p>
+            </view>
+
+            <view id="outside_btn" bindtap="to_outside"
+                style="color: {{outside_btn_font}}; background-color: {{outside_btn_bg}};">
+                <p>
+                    <span>境外·港澳台</span>
+                </p>
+            </view>
+        </view>
+        <input class="search_city" type="text" value="{{searchInput}}" placeholder="请输入城市名或拼音"
+            bindconfirm="confirmSearch" bindfocus="startSearch" bindblur="exitSearch"></input>
+
+    </view>
+    <block wx:if="{{isSearch}}">
+
+    </block>
+    <block wx:else>
+        <view class="city_select">
+            <view class="position_div">
+                您的位置
+            </view>
+            <view class="rec_position">
+                <view class="user_location" bindtap="selectCity">
+                    <p>
+                        <span>{{user_location}}</span>
+                    </p>
+                </view>
+
+            </view>
+            <block>
+                <view class="cities" wx:for="{{cities}}" wx:for-item="city" wx:for-index="index">
+                    <view class="city_item" data-city="{{city.city}}"
+                        bindtap="selectCity">
+                        <p>
+                            <span>{{city.city}}</span>
+                        </p>
+                    </view>
+                    <view class="horizon_border">
+                        <image class="horizon_border_img" src="/img/p7.jpg"></image>
+                    </view>
+                </view>
+            </block>
+        </view>
+    </block>
+
+</view>

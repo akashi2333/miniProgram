@@ -1,0 +1,44 @@
+<view class='cu-custom' style="height:{{CustomBar}}px;">
+  <view 
+    class="cu-bar fixed bg-gradual-purple" 
+    style="height:{{CustomBar}}px;padding-top:{{StatusBar}}px;">
+    <view class='action' style='top:{{StatusBar}}px;'  bindtap="BackPage">
+      <text class="icon-back">特价游</text>
+    </view>
+  </view>
+</view>
+<view class="cu-card case">
+  <view class="cu-item shadow" wx:for="{{travelProductList}}" wx:key="{{index}}" wx:for-item="travelProduct" catchtap="toDetail" id="{{index}}">
+    <view class="image">
+      <image src="{{travelProduct.imgurl[0]}}" mode="widthFix"></image>
+      <view class="cu-tag text-white text-sm" style="position:absolute;left:0;top:0;width:296px;background-color:rgb(0,0,0,0.5);justify-content:start">
+        <view class="icon-home padding-lr-sm text-center" style="border-right:0.5px solid white;line-height:20px;">{{travelProduct.agence}}</view>
+        <view class="padding-lr-sm text-center" style="border-right:0.5px solid white;line-height:20px">{{travelProduct.time}}</view>
+        <view class="padding-lr-sm text-center" style="border-right:0.5px solid white;line-height:20px">{{travelProduct.trafficway}}</view>
+        <view class="padding-lr-sm text-center" style="line-height:20px">{{travelProduct.isfull}}</view>
+      </view>
+      <view class="cu-bar bg-shadeBottom">
+        <text class="text-cut text-sm">途径: {{travelProduct.way}}</text>
+      </view>
+    </view>
+    <view class="cu-list menu-avatar margin-tb-sm">
+      <view class="cu-item flex flex-wrap align-center" style="padding:0 30rpx">
+        <text class="text-cut">{{travelProduct.introduction}}</text>
+        <view class="flex justify-start margin-top-sm" style="width:100%">
+          <view class="text-xs bg-purple padding-lr-xs" style="border:1px solid purple;border-top-left-radius:30rpx;border-bottom-right-radius:30rpx">{{travelProduct.mark}}分</view>
+          <view class="text-xs padding-lr-xs margin-left-sm" style="border:1px solid purple;color:purple">{{travelProduct.selfpaying}}</view>
+          <view class="text-xs padding-lr-xs margin-left-sm" style="border:1px solid purple;color:purple">{{travelProduct.shopping}}</view>
+          <view class="text-xs padding-lr-xs margin-left-sm" style="border:1px solid purple;color:purple">{{travelProduct.isdepart}}</view>
+          <text class="text-sm padding-lr-xs margin-left-sm text-gray">已售{{travelProduct.number}}笔</text>
+        </view>
+        <view class="flex justify-between margin-top-sm align-center" style="width:100%">
+          <view class="text-orange">
+            <text class="text-lg">￥{{travelProduct.price}}</text>
+            <text class="text-sm margin-left-xs">起</text>
+          </view>
+          <text class="text-sm text-gray">{{travelProduct.starttime}}出发</text>
+        </view>
+      </view>
+    </view>
+  </view>
+</view>

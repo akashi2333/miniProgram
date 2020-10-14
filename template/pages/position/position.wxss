@@ -1,0 +1,121 @@
+.header {
+  height: 200rpx;
+  background-color: #7377FF;
+  display: flex;
+  flex-flow: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.position {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 24rpx;
+  margin-bottom: 30rpx;
+}
+
+#inside_btn {
+  border-style: solid;
+  border-width: 3rpx;
+  border-color: #ffffff;
+  border-top-left-radius: 200rpx;
+  border-bottom-left-radius: 200rpx;
+  padding: 15rpx 60rpx;
+}
+
+#outside_btn {
+  border-width: 3rpx;
+  border-style: solid;
+  border-color: #ffffff;
+  border-top-right-radius: 200rpx;
+  border-bottom-right-radius: 200rpx;
+  padding: 15rpx 20rpx;
+}
+
+.search_city {
+  background-color: #ffffff;
+  text-align: center;
+  width: 75%;
+  height: 60rpx;
+  border-radius: 10rpx;
+  color: grey;
+}
+
+.city_select {
+  display: flex;
+  flex-flow: column;
+}
+
+.position_div {
+  background-color: rgb(230, 230, 230);
+  height: 50rpx;
+  font-size: 26rpx;
+  padding: 10rpx 10rpx 0rpx 10rpx;
+}
+
+.rec_position {
+  height: 100rpx;
+  background-color: #ffffff;
+}
+
+.city_item {
+  height: 80rpx;
+  background-color: #ffffff;
+  display: flex;
+  justify-content: left;
+  align-items: center;
+  padding-left: 20rpx;
+}
+
+.horizon_border {
+  width: 100%;
+  height: 10rpx;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.horizon_border_img {
+  width: 100%;
+  height: 4.5rpx;
+  margin: 0 20rpx;
+  align-self: center;
+}
+
+.user_location {
+  border-width: 3rpx;
+  border-radius: 10rpx;
+  border-style: solid;
+  border-color: grey;
+  width: 180rpx;
+  margin: 20rpx;
+  padding: 10rpx;
+  font-size: 26rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.popular_cities {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.popular_city {
+  width: fit-content;
+}
+
+.popular_city_item {
+  border-width: 3rpx;
+  border-radius: 10rpx;
+  border-style: solid;
+  border-color: grey;
+  width: 180rpx;
+  margin: 20rpx;
+  padding: 10rpx;
+  font-size: 26rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}

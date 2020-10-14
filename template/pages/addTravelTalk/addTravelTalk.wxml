@@ -1,0 +1,41 @@
+<view class='cu-custom' style="height:{{CustomBar}}px;">
+  <view 
+    class="cu-bar fixed bg-gradual-purple" 
+    style="height:{{CustomBar}}px;padding-top:{{StatusBar}}px;">
+    <view class='action' style='top:{{StatusBar}}px;'  bindtap="BackPage">
+      <text class="icon-back">新增杂谈</text>
+    </view>
+  </view>
+</view>
+<view class="flex flex-direction">
+  <view class="cu-bar input margin-top">
+    <view class="action">
+      <text>标题</text>
+    </view>
+    <input class="solid-bottom" focus="true" maxlength="50" cursor-spacing="10" placeholder="请输入杂谈标题..." bindinput="change_title" placeholder-class="input-title-holder"></input>
+  </view>
+  <view class="cu-form-group margin-top">
+    <textarea maxlength="800"  auto-height="true" focus="{{content_focus}}" bindinput="change_content" placeholder="分享旅途中的新得体验..." placeholder-class="input-content-holder"></textarea>
+  </view>
+  <view class="cu-form-group margin-top">
+    <view class="grid col-3 grid-square flex-sub">
+      <view class="bg-img" wx:for="{{imgUrl}}" wx:key="{{index}}" bindtap="ViewImage" data-url="{{imgUrl[index]}}">
+        <image src='{{imgUrl[index]}}' mode='aspectFill'></image>
+        <view class="cu-tag bg-red" catchtap="DelImg" data-index="{{index}}">
+          <text class="icon-close"></text>
+        </view>
+      </view>
+      <view class="solids" bindtap="choose_imgs" wx:if="{{imgUrl.length<3}}">
+        <text class="icon-cameraadd"></text>
+      </view>
+    </view>
+  </view>
+  <view class="bg-white flex justify-between align-center solids-top" bindtap="change_position">
+    <view class="margin">所在地</view>
+    <view class="flex justify-end align-center">
+      <view class="text">{{user_address}}</view>
+      <view class="icon-right {{userCity ? 'hide' : ''}}"></view>
+    </view>
+  </view>
+  <button class="cu-btn bg-purple lg margin" bindtap="submit">保存</button>
+</view>
