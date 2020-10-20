@@ -6,7 +6,8 @@
     "pages/addTravelTalk/addTravelTalk",
     "pages/position/position",
     "pages/cheapTravel/cheapTravel",
-    "pages/travelProduct/travelProduct"
+    "pages/travelProduct/travelProduct",
+    "pages/travelTime/travelTime"
   ],
   "window": {
     "backgroundTextStyle": "light",

@@ -62,7 +62,24 @@ Page({
         number:321,
         price:3200,
         starttime:'10-1',
-        identifiction: 210041446
+        identifiction: 210041446,
+        evaluations:[{
+          headImg:'https://ossweb-img.qq.com/images/lol/web201310/skin/big10006.jpg',
+          userName:'TY',
+          releaseTime:'2020-04-08',
+          content:'世界那么大！'
+        },{
+          headImg:'https://ossweb-img.qq.com/images/lol/web201310/skin/big10006.jpg',
+          userName:'TY',
+          releaseTime:'2020-04-08',
+          content:'世界那么大！'
+        },{
+          headImg:'https://ossweb-img.qq.com/images/lol/web201310/skin/big10006.jpg',
+          userName:'TY',
+          releaseTime:'2020-04-08',
+          content:'世界那么大！'
+        }
+      ]
       },
       {
         imgurl:['https://ossweb-img.qq.com/images/lol/web201310/skin/big10006.jpg','https://ossweb-img.qq.com/images/lol/web201310/skin/big10006.jpg','https://ossweb-img.qq.com/images/lol/web201310/skin/big10006.jpg'],
@@ -79,7 +96,19 @@ Page({
         number:321,
         price:3200,
         starttime:'10-1',
-        identifiction: 210041446
+        identifiction: 210041446,
+        evaluations:[{
+          headImg:'https://ossweb-img.qq.com/images/lol/web201310/skin/big10006.jpg',
+          userName:'TY',
+          releaseTime:'2020-04-08',
+          content:'世界那么大！'
+        },{
+          headImg:'https://ossweb-img.qq.com/images/lol/web201310/skin/big10006.jpg',
+          userName:'TY',
+          releaseTime:'2020-04-08',
+          content:'世界那么大！'
+        }
+      ]
       },
       {
         imgurl:['https://ossweb-img.qq.com/images/lol/web201310/skin/big10006.jpg','https://ossweb-img.qq.com/images/lol/web201310/skin/big10006.jpg','https://ossweb-img.qq.com/images/lol/web201310/skin/big10006.jpg'],
@@ -96,7 +125,13 @@ Page({
         number:321,
         price:3200,
         starttime:'10-1',
-        identifiction: 210041446
+        identifiction: 210041446,
+        evaluations:[{
+          headImg:'https://ossweb-img.qq.com/images/lol/web201310/skin/big10006.jpg',
+          userName:'TY',
+          releaseTime:'2020-04-08',
+          content:'世界那么大！'
+        }]
       },
       {
         imgurl:['https://ossweb-img.qq.com/images/lol/web201310/skin/big10006.jpg','https://ossweb-img.qq.com/images/lol/web201310/skin/big10006.jpg','https://ossweb-img.qq.com/images/lol/web201310/skin/big10006.jpg'],
@@ -113,7 +148,8 @@ Page({
         number:321,
         price:3200,
         starttime:'10-1',
-        identifiction: 210041446
+        identifiction: 210041446,
+        evaluations:[]
       }
     ]
   },

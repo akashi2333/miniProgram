@@ -31,7 +31,7 @@
             <text class="text-lg text-orange">￥{{travelProduct.price}}</text>
             <text class="text-sm margin-left-xs">起</text>
           </view>
-          <text class="text-sm padding-lr-xs margin-left-sm text-orange" style="text-decoration:underline">价格详情</text>
+          <text class="text-sm padding-lr-xs margin-left-sm text-orange" style="text-decoration:underline" bindtap="priceDetail">价格详情</text>
           <text class="text-sm padding-lr-xs margin-left-lg text-gray">已售{{travelProduct.number}}笔</text>
         </view>
         <view class="flex justify-between margin-top-sm align-center" style="width:100%">
@@ -40,7 +40,7 @@
             <view class="icon-roundcheck margin-right">{{travelProduct.selfpaying}}</view>
             <view class="icon-roundcheck margin-right">{{travelProduct.isdepart}}</view>
           </view>
-          <view class="icon-more"></view>
+          <view class="icon-more" bindtap="showMore"></view>
         </view>
       </view>
     </view>
@@ -54,46 +54,46 @@
     </view>
     <view class="flex justify-between align-center margin-bottom-sm"  style="padding:0 12px">
       <view class="text-sm grid col-5">
-        <view style="padding：10rpx; border-radius:5px;border:1px solid gray" class="flex justify-center align-center flex-wrap  margin-top-lg margin-right">
+        <view style="padding：10rpx; border-radius:5px;border:1px solid gray" class="flex justify-center align-center flex-wrap  margin-top-lg margin-right" bindtap="travelTime">
           <view class="margin-bottom-xs">04-04 周六</view>
           <text class="text-orange">￥{{travelProduct.price}}</text>
         </view>
-        <view style="border-radius:5px;border:1px solid gray" class="flex justify-center align-center flex-wrap  margin-top-lg margin-right">
+        <view style="border-radius:5px;border:1px solid gray" class="flex justify-center align-center flex-wrap  margin-top-lg margin-right" bindtap="travelTime">
           <view class="margin-bottom-xs">04-05 周六</view>
           <text class="text-orange">￥{{travelProduct.price}}</text>
         </view>
-        <view style="border-radius:5px;border:1px solid gray" class="flex justify-center align-center flex-wrap  margin-top-lg margin-right">
+        <view style="border-radius:5px;border:1px solid gray" class="flex justify-center align-center flex-wrap  margin-top-lg margin-right" bindtap="travelTime">
           <view class="margin-bottom-xs">04-06 周六</view>
           <text class="text-orange">￥{{travelProduct.price}}</text>
         </view>
-        <view style="border-radius:5px;border:1px solid gray" class="flex justify-center align-center flex-wrap  margin-top-lg margin-right">
+        <view style="border-radius:5px;border:1px solid gray" class="flex justify-center align-center flex-wrap  margin-top-lg margin-right" bindtap="travelTime">
           <view class="margin-bottom-xs">04-07 周六</view>
           <text class="text-orange">￥{{travelProduct.price}}</text>
         </view>
-        <view style="border-radius:5px;border:1px solid gray" class="flex justify-center align-center flex-wrap  margin-top-lg margin-right">
+        <view style="border-radius:5px;border:1px solid gray" class="flex justify-center align-center flex-wrap  margin-top-lg margin-right" bindtap="travelTime">
           <view class="margin-bottom-xs">04-08 周六</view>
           <text class="text-orange">￥{{travelProduct.price}}</text>
         </view>
-        <view style="border-radius:5px;border:1px solid gray" class="flex justify-center align-center flex-wrap  margin-top-lg margin-right">
+        <view style="border-radius:5px;border:1px solid gray" class="flex justify-center align-center flex-wrap  margin-top-lg margin-right" bindtap="travelTime">
           <view class="margin-bottom-xs">04-09 周六</view>
           <text class="text-orange">￥{{travelProduct.price}}</text>
         </view>
-        <view style="border-radius:5px;border:1px solid gray" class="flex justify-center align-center flex-wrap  margin-top-lg margin-right">
+        <view style="border-radius:5px;border:1px solid gray" class="flex justify-center align-center flex-wrap  margin-top-lg margin-right" bindtap="travelTime">
           <view class="margin-bottom-xs">04-10 周六</view>
           <text class="text-orange">￥{{travelProduct.price}}</text>
         </view>
-        <view style="border-radius:5px;border:1px solid gray" class="flex justify-center align-center flex-wrap  margin-top-lg margin-right">
+        <view style="border-radius:5px;border:1px solid gray" class="flex justify-center align-center flex-wrap  margin-top-lg margin-right" bindtap="travelTime">
           <view class="margin-bottom-xs">04-11 周六</view>
           <text class="text-orange">￥{{travelProduct.price}}</text>
         </view>
       </view>
-      <view class="icon-right"></view>
+      <view class="icon-right" bindtap="travelTime"></view>
     </view>
   </view>
 </view>
 <view class="cu-card case no-card margin-top-xs">
   <view class="cu-item shadow">
-    <view class="flex justify-between align-center margin-top-sm" style="padding:0 12px">
+    <view class="flex justify-between align-center margin-tb-sm" style="padding:0 12px">
       <view class="text-purple flex align-center">
         <view class="margin-right-lg">
           <text class="text-lg margin-right-xs">{{travelProduct.mark}}</text>
@@ -106,7 +106,7 @@
         <text class="icon-right"></text>
       </view>
     </view>
-    <view class="margin-bottom-sm">
+    <view class="margin-bottom-sm" hidden="{{travelProduct.evaluations.length == 0}}">
       <view class="cu-list menu-avatar">
         <view class="cu-item flex justify-between align-center">
           <view class="cu-avatar round lg" style="background-image:url('{{travelProduct.evaluations[0].headImg}}');"></view>
@@ -267,4 +267,36 @@
     </view>
   </view>
 </view>
-
+<view class="bg" bindtap='hideview' hidden="{{flag}}"></view>
+<view class="show bg-gray" hidden="{{flag}}">
+  <view class="flex justify-between align-center padding bg-white">
+    <view class="text-black text-lg">价格说明</view>
+    <view class="icon-close text-black text-xl" bindtap='hideview' ></view>
+  </view>
+  <view class="text-gray text-sm padding bg-white" style="margin-top:2px">
+    <view class="margin-top-sm">成人价：256（哒哒哒哒哒哒哒哒哒嗒嗒嗒滴滴滴滴滴滴滴滴滴滴滴滴滴滴）</view>
+    <view class="margin-top-sm">中童价：156（哒哒哒哒哒哒哒哒哒嗒嗒嗒滴滴滴滴滴滴滴滴滴滴滴滴滴滴）</view>
+    <view class="margin-tb-sm">小童价：106（哒哒哒哒哒哒哒哒哒嗒嗒嗒滴滴滴滴滴滴滴滴滴滴滴滴滴滴）</view>
+  </view>
+</view>
+<view class="bg" bindtap='hideMore' hidden="{{flag1}}"></view>
+<view class="show bg-gray" hidden="{{flag1}}">
+  <view class="flex justify-between align-center padding bg-white">
+    <view class="text-black text-lg">服务保障</view>
+    <view class="icon-close text-black text-xl" bindtap='hideMore' ></view>
+  </view>
+  <view class="text-gray text-sm padding bg-white" style="margin-top:2px">
+    <view class="margin-top-sm">
+      <text class="padding-xs" style="border:1px solid gray">{{travelProduct.selfpaying}}</text>
+      <view class="margin-top-sm">无购物特色服务是指甲方承认该商品的信息真实有效，一旦网上预定并付款后，行程中无购物店</view>
+    </view>
+    <view class="margin-top-sm">
+      <text class="padding-xs" style="border:1px solid gray">{{travelProduct.shopping}}</text>
+      <view class="margin-top-sm">无自费是指甲方承认该商品的信息真实有效，一旦网上预定并付款后，不得增加强制自费项目</view>
+    </view>
+    <view class="margin-tb-sm">
+      <text class="padding-xs" style="border:1px solid gray">{{travelProduct.isdepart}}</text>
+      <view class="margin-top-sm">即时确认是指甲方承认该商品的信息真实有效，一旦网上预定并付款后，商家会立即打电话确认核对出游信息</view>
+    </view>
+  </view>
+</view>
